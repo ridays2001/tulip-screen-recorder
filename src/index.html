@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+		<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+
+		<title>🌷 Tulip Screen Recorder</title>
+		<link rel="stylesheet" href="bootstrap.min.css" />
+		<script defer src="script.js"></script>
+		<style>
+			body {
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+				padding: 0;
+				margin: 0;
+			}
+
+			video {
+				width: 60%;
+				height: auto;
+				display: hidden;
+			}
+
+			body {
+				text-align: center;
+				padding-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="fs-1">🌷 Tulip Screen Recorder</h1>
+
+		<video></video>
+
+		<div class="d-flex justify-content-evenly">
+			<button id="start" class="btn btn-primary" onclick="onStart()" disabled>▶️ Start</button>
+			<button id="stop" class="btn btn-danger" onclick="onStop()" disabled>⏹ Stop</button>
+		</div>
+
+		<hr />
+
+		<button id="videoSrc" class="btn btn-outline-primary" onclick="getWindows()">Choose a Video Source.</button>
+	</body>
+</html>
