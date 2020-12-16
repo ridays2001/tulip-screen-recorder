@@ -15,18 +15,17 @@ const createWindow = () => {
 		webPreferences: {
 			nodeIntegration: true,
 			enableRemoteModule: true,
-			devTools: false
+			devTools: false,
+			contextIsolation: false
 		},
 		autoHideMenuBar: true,
 		center: true,
-		frame: true
+		frame: false,
+		icon: path.join(`${__dirname}/img/Tulip.ico`)
 	});
 
 	// and load the index.html of the app.
 	mainWindow.loadFile(path.join(__dirname, 'index.html'));
-
-	// Open the DevTools.
-	mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
