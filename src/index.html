@@ -6,40 +6,57 @@
 		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 		<meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
 
-		<title>🌷 Tulip Screen Recorder</title>
-		<link rel="stylesheet" href="bootstrap.min.css" />
+		<title>Tulip Screen Recorder</title>
+		<link rel="stylesheet" href="./css/bootstrap.min.css" />
+		<link rel="stylesheet" href="./css/index.css" />
 		<script defer src="script.js"></script>
-		<style>
-			body {
-				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-				padding: 0;
-				margin: 0;
-			}
-
-			video {
-				width: 60%;
-				height: auto;
-				display: hidden;
-			}
-
-			body {
-				text-align: center;
-				padding-top: 20px;
-			}
-		</style>
 	</head>
 	<body>
-		<h1 class="fs-1">🌷 Tulip Screen Recorder</h1>
+		<div id="window-pane" class="position-sticky">
+			<div class="float-start ps-3">
+				<img src="./img/Tulip.ico" alt="Tulip" />
+				Tulip Screen Recorder
+			</div>
 
-		<video></video>
+			<div class="button-group float-end pe-2" role="group" aria-label="window-pane">
+				<button class="btn btn-outline-secondary" onclick="minimize()">
+					<svg aria-hidden="false" width="12" height="12" viewBox="0 0 12 12">
+						<rect fill="currentColor" width="10" height="1" x="1" y="6"></rect>
+					</svg>
+				</button>
 
-		<div class="d-flex justify-content-evenly">
-			<button id="start" class="btn btn-primary" onclick="onStart()" disabled>▶️ Start</button>
-			<button id="stop" class="btn btn-danger" onclick="onStop()" disabled>⏹ Stop</button>
+				<button class="btn btn-outline-info" onclick="maximize()">
+					<svg aria-hidden="false" width="12" height="12" viewBox="0 0 12 12">
+						<rect width="9" height="9" x="1.5" y="1.5" fill="none" stroke="currentColor"></rect>
+					</svg>
+				</button>
+
+				<button class="btn btn-outline-danger" onclick="kill()">
+					<svg aria-hidden="false" width="12" height="12" viewBox="0 0 12 12">
+						<polygon
+							fill="currentColor"
+							fill-rule="evenodd"
+							points="11 1.576 6.583 6 11 10.424 10.424 11 6 6.583 1.576 11 1 10.424 5.417 6 1 1.576 1.576 1 6 5.417 10.424 1"
+						></polygon>
+					</svg>
+				</button>
+			</div>
 		</div>
 
-		<hr />
+		<div class="container">
+			<div class="row">
+				<div class="col-3 align-middle">
+					<button id="videoSrc" class="btn btn-outline-primary my-2" onclick="getWindows()">
+						Choose a Video Source.
+					</button>
+					<br />
+					<button id="start" class="btn btn-primary my-2" onclick="onStart()" disabled>▶️ Start</button>
+					<br />
+					<button id="stop" class="btn btn-danger my-2" onclick="onStop()" disabled>⏹ Stop</button>
+				</div>
 
-		<button id="videoSrc" class="btn btn-outline-primary" onclick="getWindows()">Choose a Video Source.</button>
+				<video class="col-8"></video>
+			</div>
+		</div>
 	</body>
 </html>
