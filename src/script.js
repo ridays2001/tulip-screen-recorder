@@ -73,3 +73,19 @@ const getWindows = async () => {
 	);
 	optionsMenu.popup();
 };
+
+const minimize = () => {
+	const window = remote.getCurrentWindow();
+	window.minimize();
+};
+
+const maximize = () => {
+	const window = remote.getCurrentWindow();
+	if (window.isMaximized()) return window.unmaximize();
+	return window.maximize();
+};
+
+const kill = () => {
+	const window = remote.getCurrentWindow();
+	window.close();
+};
