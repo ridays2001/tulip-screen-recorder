@@ -29,12 +29,12 @@ const handleDataAvailable = (e) => recordedChunks.push(e.data);
 
 const handleStop = async () => {
 	const blob = new Blob(recordedChunks, {
-		type: 'video/mp4'
+		type: 'video/webm; codecs=vp9'
 	});
 
 	const { filePath } = await dialog.showSaveDialog({
 		buttonLabel: 'Save Video',
-		defaultPath: `Rec-${Date.now()}.mp4`
+		defaultPath: `Rec-${Date.now()}.webm`
 	});
 	writeFile(filePath, Buffer.from(await blob.arrayBuffer()), () => {});
 };
